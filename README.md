@@ -2,7 +2,7 @@
 
 The Gym Management System is a role-based class scheduling and booking platform. It allows Admins to create and manage class schedules, assign Trainers, and monitor class limits. Trainees can book available classes and manage their profiles. The system enforces booking restrictions like maximum trainees per class and prevents schedule conflicts.
 
-# If you're viewing this in a browser, welcome! If not, please open it in a web browser for the best experience and for Relational Diagram.
+# If you're viewing this in a browser, welcome! If not, please open it in a web browser for better view and for Relational Diagram.
 
 ## Technology Stack
 
