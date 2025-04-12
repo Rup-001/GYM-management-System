@@ -1,6 +1,8 @@
-# GYM_mang
+# Gym Management System
 
 The Gym Management System is a role-based class scheduling and booking platform. It allows Admins to create and manage class schedules, assign Trainers, and monitor class limits. Trainees can book available classes and manage their profiles. The system enforces booking restrictions like maximum trainees per class and prevents schedule conflicts.
+
+# If you're viewing this in a browser, welcome! If not, please open it in a web browser for the best experience.
 
 ## Technology Stack
 
@@ -15,9 +17,9 @@ Architecture Pattern: Modular folder structure
 ## Pre-Created Users
 Three users have been created for testing purposes:
 
-- **Email:** user1@example.com | **Username:** user1  
-- **Email:** user2@example.com | **Username:** user2  
-- **Email:** admin@example.com | **Username:** admin  
+- **Email:** trainer1@google.com  
+- **Email:** trainee1@google.com
+- **Email:** admin@example.com
 
 **Password:** `12345`
 
@@ -25,6 +27,36 @@ Three users have been created for testing purposes:
 The root route (`/`) is accessible to all users without requiring authentication. For more information, please refer to the organized list of endpoints below.
 
 ## API Endpoints
+
+You can run this Gym Management System either locally or on Railway (cloud deployment):
+
+Localhost (For local development)
+URL = http://localhost:PORT
+
+Live API (For public access)
+URL = https://gym-management-system-production.up.railway.app/
+
+### Home Routes
+
+
+- **GET**: {{URL}}
+
+### Auth Routes
+- **POST**: {{URL}}/api/auth/login
+- **POST**: {{URL}}/api/auth/registration
+
+### Schedule Routes
+- **GET**:  {{URL}}/api/schedule/all
+- **POST**:  {{URL}}/api/schedule
+- **PATCH**:  {{URL}}/api/schedule/assign-trainer
+
+### Booking Routes
+- **PATCH**: {{URL}}/api/booking/book-schedule
+- **PATCH**: {{URL}}/api/booking/cancel-booking
+
+### User Routes
+- **GET**: {{URL}}/api/users/trainee-profile
+- **GET**: {{URL}}/api/users/trainer-profile
 
 ##  Database Schema (Mongoose Models)
 
@@ -74,20 +106,21 @@ export default model<IClassSchedule>('ClassSchedule', ClassScheduleSchema);
 
 ##  Instructions to Run Locally
 
-# 1. Clone the repository
+1. Clone the repository
 git clone https://github.com/Rup-001/GYM_mang.git
 cd GYM_mang
 
-# 2. Install dependencies
+2. Install dependencies
 npm install
 
-# 3. Set up environment variables
+3. Set up environment variables
 touch .env
-# Add variables like:
-# PORT=YOUR_PORT
-# MONGO_URI=YOUR_MONGODB_URL/gymMang
-# JWT_SECRET=thisisrandomstring
 
-# 4. Start the server
+Add variables like:
+PORT=YOUR_PORT
+MONGO_URI=YOUR_MONGODB_URL/gymMang
+JWT_SECRET=thisisrandomstring
+
+4. Start the server
 npm start
 

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction  } from "express";
-import { createScheduleService, assignTrainerToSchedule  } from './schedule.service';
+import { createScheduleService, assignTrainerToSchedule, getAllSchedulesServices  } from './schedule.service';
 
 
 export const createClassSchedule = async (req: Request, res: Response): Promise<void> => {
@@ -41,5 +41,18 @@ export const assignTrainer = async (req: Request, res: Response) => {
     });
   } catch (error: any) {
     res.status(500).json({ message: error.message || 'Error assigning trainer' });
+  }
+};
+
+export const getAllSchedules = async (req: Request, res: Response) => {
+  try {
+    const getAllSchedules = await getAllSchedulesServices()
+
+     res.status(200).json({ success: true,
+       clasees: getAllSchedules });
+     return
+  } catch (error: any) {
+    res.status(500).json({ success: false, message: error.message });
+    return 
   }
 };

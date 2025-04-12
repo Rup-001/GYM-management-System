@@ -20,3 +20,4 @@ const ClassScheduleSchema = new Schema<IClassSchedule>({
 ClassScheduleSchema.index({ date: 1, startTime: 1 }, { unique: true }); // prevent duplicate slots
 
 export default model<IClassSchedule>('ClassSchedule', ClassScheduleSchema);
+

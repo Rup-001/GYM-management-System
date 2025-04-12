@@ -57,3 +57,16 @@ export const assignTrainerToSchedule = async (scheduleId: string, trainerId: str
 
   return updatedSchedule;
   };
+
+
+  export const getAllSchedulesServices = async () => {
+
+    const getAllSchedules = await ClassSchedule.find()
+    .populate('trainer', 'name email')
+    .populate('trainees', 'name email')
+    .sort({ date: 1, startTime: 1 });
+
+      return getAllSchedules;
+
+
+  }
